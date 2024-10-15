@@ -1,0 +1,60 @@
+body {
+    background-image: url('demon.slayer.backround.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Kanit", sans-serif;
+}
+
+#character {
+    width: 90%;
+    max-width: 450px;
+    max-height: calc(100vh - 150px);
+    display: block;
+    margin: auto;
+    object-fit: contain;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+#shop {
+    backdrop-filter: blur(20px);
+    width: 300px;
+    position: fixed;  
+    top: 0 ;
+    right: 0;
+    height: 100%;
+    overflow: scroll;
+}
+
+#shop img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    background: rgb(15,28,233);
+    background: rgb(10,18,143);
+    background: rgb(10,18,143);
+    background: rgb(10,18,143);
+    background: linear-gradient(196deg, rgba(10,18,143,1) 0%, rgba(16,143,198,1) 49%, rgba(8,134,115,1) 100%);
+    margin: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#shop img:hover {
+    filter: brightness(1.5);
+    
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* type anything that you are afraid to forget next to the tag  */
