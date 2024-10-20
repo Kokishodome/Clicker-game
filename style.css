@@ -1,6 +1,7 @@
 body {
     background-image: url('demon.slayer.backround.jpeg');
     background-size: cover;
+    /* the backround cannot move */
     background-attachment: fixed;
     font-family: "Kanit", sans-serif;
 }
@@ -10,6 +11,7 @@ body {
     max-width: 450px;
     max-height: calc(100vh - 150px);
     display: block;
+    /* to place strong blocks in the centre */
     margin: auto;
     object-fit: contain;
 }
@@ -21,12 +23,15 @@ h1 {
 }
 
 #shop {
+    /* to make it blur */
     backdrop-filter: blur(20px);
     width: 300px;
-    position: fixed;  
+    /* to make the shop stay in place */
+    position: fixed; 
     top: 0 ;
     right: 0;
     height: 100%;
+    /* so it can move up and down */
     overflow: scroll;
 }
 
