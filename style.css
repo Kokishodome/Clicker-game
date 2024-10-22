@@ -14,6 +14,13 @@ body {
     /* to place strong blocks in the centre */
     margin: auto;
     object-fit: contain;
+
+    transition: .3s;
+
+}
+
+#character:hover {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.355));
 }
 
 h1 {
@@ -60,6 +67,12 @@ h3 {
     color: white;
     text-align: center;
     margin: 10px 0;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-top: 0;
 }
 
 /* type anything that you are afraid to forget next to the tag  */
