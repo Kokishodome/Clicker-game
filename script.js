@@ -14,6 +14,13 @@ let money = 0
 let moneyTitle = document.getElementById('moneyTitle')
 let daki = document.getElementById('daki')
 let clicker = document.getElementById('character')
+function GameOver() {
+    timer.innerHTML= 'WASTED'
+    clicker.style.pointerEvents = 'none'
+    katana.style.pointerEvents = 'none'
+    potion.style.pointerEvents = 'none'
+    blueSpiderLilly.style.pointerEvents = 'none'
+}
 clicker.onclick = function () {
     clicker.style.transform = 'scale(0.95)'
     setTimeout(() => {
@@ -31,7 +38,7 @@ clicker.onclick = function () {
         money = money - 5
     }
     moneyTitle.innerHTML = 'Money: ' + money + '$'
-    if (Math.random() > 0.9 && isBlueSpiderLilly==false) {
+    if (Math.random() > 0.95 && isBlueSpiderLilly==false) {
         clicker.src = 'Daki (2).png'
         isTanjiro=false
     }
@@ -46,14 +53,20 @@ katana.onclick = function () {
     katana.style.pointerEvents = 'none'
     katana.style.boxShadow = '0 0 20px rgb(136 255 217 / 88%)'
     if (money < 100) {
+        timer.innerHTML='You are in debt. You have 1 minute.'
+        setTimeout(() => {
+            timer.innerHTML='Clicker Game'
+        }, 3000);
         time = 60
         // interval is a method that executes functions once every specific time and it works forever
         let timeInterval = setInterval(() => {
             time = time - 1
-            timer.innerHTML = 'time: ' + time
             if (money > 0) {
-                timer.innerHTML = 'Clicker Game'
                 clearInterval(timeInterval)
+            }
+            if(time==0){
+                clearInterval(timeInterval)
+                GameOver()
             }
 
         }, 1000);
@@ -63,37 +76,52 @@ katana.onclick = function () {
         moneyAmount = 1
         katana.style.pointerEvents = 'auto'
         katana.style.boxShadow = 'none'
-    }, 5000)
+    }, 20000)
     money = money - 100
     moneyTitle.innerHTML = 'Money: ' + money + '$'
 }
 
 potion.onclick = function () {
+    potion.style.pointerEvents = 'none'
+    potion.style.boxShadow = '0 0 20px rgb(136 255 217 / 88%)'
     isPotion = true
 
     if (money < 100) {
         time = 180
+        timer.innerHTML='You are in debt. You have 1 minute.'
+        setTimeout(() => {
+            timer.innerHTML='Clicker Game'
+        }, 3000);
         let timeInterval = setInterval(() => {
             time = time - 1
-            timer.innerHTML = 'time: ' + time
             if (money > 0) {
-                timer.innerHTML = 'Clicker Game'
                 clearInterval(timeInterval)
+            }
+            if(time==0){
+                clearInterval(timeInterval)
+                GameOver()
             }
 
         }, 1000);
     }
+    setTimeout(() => {
+        potion.style.pointerEvents = 'auto'
+        potion.style.boxShadow = 'none'
+        isPotion=false
+    }, 20000);
     money = money - 400
     moneyTitle.innerHTML = 'Money: ' + money + '$ '
 }
 
 starCoin.onclick = function () {
-    starCoin.style.pointerEvents = 'none'
+   starCoin.style.pointerEvents = 'none'
+    starCoin.style.boxShadow = '0 0 20px rgb(136 255 217 / 88%)'
     isStarCoin = true
 
     setTimeout(() => {
         starCoin.style.pointerEvents = 'auto'
-    }, 1000);
+        potion.style.boxShadow = 'none'
+    }, 5000);
     if (Math.random() > 0.5) {
         money = money + 800
     }
@@ -104,19 +132,23 @@ starCoin.onclick = function () {
 }
 
 blueSpiderLilly.onclick = function () {
+    blueSpiderLilly.style.pointerEvents = 'none'
+    blueSpiderLilly.style.boxShadow = '0 0 20px rgb(136 255 217 / 88%)'
     isBlueSpiderLilly=true
     if (money < 1300) {
         time = 360
+        timer.innerHTML='You are in debt. You have 1 minute.'
+        setTimeout(() => {
+            timer.innerHTML='Clicker Game'
+        }, 3000);
         let timeInterval = setInterval(() => {
             time = time - 1
-            timer.innerHTML = 'time: ' + time
             if (money > 0) {
-                timer.innerHTML = 'Clicker Game'
                 clearInterval(timeInterval)
             }
             if(time==0){
                 clearInterval(timeInterval)
-                timer.innerHTML= 'WASTED'
+                GameOver()
             }
             
 
@@ -124,13 +156,14 @@ blueSpiderLilly.onclick = function () {
         
     }
     setTimeout(() => {
+        blueSpiderLilly.style.pointerEvents = 'auto'
+        blueSpiderLilly.style.boxShadow = 'none'
        isBlueSpiderLilly=false
     }, 30000)
     money = money - 1300
     moneyTitle.innerHTML = 'money: ' + money + '$'
 }
 
-//    when you click on Daki it minus 5 coins
 
 
 
