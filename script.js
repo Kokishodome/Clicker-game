@@ -4,7 +4,6 @@ let isBlueSpiderLilly=false
 let moneyAmount = 1
 let timer = document.getElementById('timer')
 let time = 0
-let isStarCoin = false
 let isPotion = false
 let blueSpiderLilly = document.getElementById('blueSpiderLilly')
 let starCoin = document.getElementById('starCoin')
@@ -88,7 +87,7 @@ potion.onclick = function () {
 
     if (money < 100) {
         time = 180
-        timer.innerHTML='You are in debt. You have 1 minute.'
+        timer.innerHTML='You are in debt. You have 3 minute.'
         setTimeout(() => {
             timer.innerHTML='Clicker Game'
         }, 3000);
@@ -108,7 +107,8 @@ potion.onclick = function () {
         potion.style.pointerEvents = 'auto'
         potion.style.boxShadow = 'none'
         isPotion=false
-    }, 20000);
+        moneyAmount=1
+    }, 100000);x    
     money = money - 400
     moneyTitle.innerHTML = 'Money: ' + money + '$ '
 }
@@ -116,11 +116,11 @@ potion.onclick = function () {
 starCoin.onclick = function () {
    starCoin.style.pointerEvents = 'none'
     starCoin.style.boxShadow = '0 0 20px rgb(136 255 217 / 88%)'
-    isStarCoin = true
 
     setTimeout(() => {
         starCoin.style.pointerEvents = 'auto'
-        potion.style.boxShadow = 'none'
+        starCoin.style.boxShadow = 'none'
+
     }, 5000);
     if (Math.random() > 0.5) {
         money = money + 800
@@ -137,7 +137,7 @@ blueSpiderLilly.onclick = function () {
     isBlueSpiderLilly=true
     if (money < 1300) {
         time = 360
-        timer.innerHTML='You are in debt. You have 1 minute.'
+        timer.innerHTML='You are in debt. You have 6 minute.'
         setTimeout(() => {
             timer.innerHTML='Clicker Game'
         }, 3000);
